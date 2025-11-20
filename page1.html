@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri Ân Thầy Cô - 20/11</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Uthman:wght@400;700&family=Dancing+Script:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            font-family: 'Uthman', 'Segoe UI', sans-serif;
+            overflow: hidden;
+            color: #333;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            padding-top: 10vh;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #d4380d;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .quote {
+            max-width: 800px;
+            margin: 40px auto;
+            font-size: 1.8rem;
+            color: #fff;
+            font-style: italic;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            line-height: 1.6;
+        }
+
+        .heart {
+            color: #ff1b6b;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hoa rơi */
+        .flower {
+            position: absolute;
+            font-size: 2rem;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Nút gửi lời chúc */
+        .wish-btn {
+            margin-top: 50px;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255,107,107,0.4);
+            transition: all 0.3s;
+        }
+
+        .wish-btn:hover {
+            transform: translateY(-5px);
+            background: #ff5252;
+        }
+
+        /* Modal lời chúc */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            text-align: center;
+            animation: zoom 0.5s;
+        }
+
+        @keyframes zoom {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin: 20px 0;
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 2px solid #ff9a9e;
+            border-radius: 10px;
+        }
+
+        button.close {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+      <!-- Hoa rơi -->
+    <script>
+        const flowers = ['🌸', '🌺', '🌹', '🌻', '🌼', '💐', '🌷', '🏵️'];
+        setInterval(() => {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = Math.random() * 5 + 5 + 's';
+            document.body.appendChild(flower);
+
+            setTimeout(() => flower.remove(), 10000);
+        }, 300);
+    </script>
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chạm vào bó hoa</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #fff1f8;
+            display: flex;                    /* bật flex */
+            flex-direction: column;           /* xếp dọc */
+            justify-content: center;          /* căn giữa theo chiều dọc */
+            align-items: center;              /* căn giữa theo chiều ngang */
+            cursor: pointer;
+            user-select: none;
+            font-family: system-ui, sans-serif;
+        }
+        .bouquet img {
+            width: 320px;                     /* bạn có thể chỉnh số này to/nhỏ tuỳ ý */
+            max-width: 90vw;                  /* không vượt quá 90% chiều rộng màn hình */
+            transition: transform 0.35s ease;
+        }
+        .bouquet:hover img {
+            transform: scale(1.2);
+        }
+        .text {
+            margin-top: 40px;
+            font-size: 30px;
+            color: #e91e63;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body onclick="window.location.href='page2.html'">
+    <div class="bouquet">
+        <!-- Đổi thành tên ảnh thật của bạn (đã copy vào cùng thư mục HTML) -->
+        <img src="picture/bohoa.png" alt="Bó hoa đẹp">
+        <!-- Ví dụ tên khác: bohoa.webp, flower.jpg, bouquet.gif... -->
+    </div>
+    <div class="text">Chạm vào bó hoa!</div>
+</body>
+</html>
